@@ -16,7 +16,7 @@ public class PostfixToInfix {
             } else {
                 String top1 = st.pop();
                 String top2 = st.pop();
-                String concat = "(" + top2 + cur + top1 + ")";
+                String concat = "(" + top1 + cur + top2 + ")";
                 st.push(concat);
             }
             i++;
@@ -28,7 +28,12 @@ public class PostfixToInfix {
 
     public static void main(String[] args) {
 
-        String s = "AB-DE+F*/";
+        // String s = "AB-DE+F*/";
+        String str[] = { "2", "3", "1", "*", "+", "9", "-" };
+        String s = "";
+        for (int i = 0; i < str.length; i++) {
+            s += str[i];
+        }
 
         System.out.println(postfixToInfix(s));
     }
