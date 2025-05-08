@@ -1,5 +1,6 @@
 package BinaryTree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -17,34 +18,39 @@ public class LevelOrder {
         }
     }
 
-    public static void prorder(Node root) {
-        if (root == null)
-            return;
-        prorder(root.left);
-        System.out.print(root.data + " ");
-        prorder(root.right);
-    }
-
     public static void levelTraversal(Node root) {
         if (root == null)
             return;
 
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+
         Queue<Node> q = new LinkedList<>();
         q.offer(root);
-
         while (!q.isEmpty()) {
-            Node curr = q.poll();
-            System.out.print(curr.data + "  ");
+            ArrayList<Integer> list = new ArrayList<>();
 
-            if (curr.left != null) {
-                q.offer(curr.left);
+            int level = q.size();
+            for (int i = 0; i < level; i++) {
+                Node curr = q.poll();
+                list.add(curr.data);
+
+                if (curr.left != null) {
+                    q.offer(curr.left);
+                }
+                if (curr.right != null) {
+                    q.offer(curr.right);
+                }
             }
-            if (curr.right != null) {
-                q.offer(curr.right);
-            }
+            ans.add(list);
+
         }
 
+        System.out.println(ans);
+        // System.out.println(list);
+
     }
+    // [10, 20, 30, 40, 50]
+    // [[10], [20, 30], [40, 50]]
 
     public static void main(String[] args) {
 
