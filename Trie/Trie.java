@@ -45,6 +45,6 @@ public class Trie {
             insert(words[i]);
         }
 
-        System.out.println(search("yuvraj"));
+        System.out.println(search("a"));
     }
 }
