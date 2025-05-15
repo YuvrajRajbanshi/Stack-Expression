@@ -41,9 +41,6 @@ public class ImpGraph {
 
         // Vertex 4
         graph[4].add(new Edge(4, 2, 2));
-
-        // print two's neighbor or we can say destination
-
         for (int i = 0; i < graph[2].size(); i++) {
 
             Edge e = graph[i].get(i);// src, dst, wt
